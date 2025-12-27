@@ -1,0 +1,76 @@
+bbody {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #0b0b0b;
+  font-family: Arial, sans-serif;
+}
+
+/* Puzzle alanı */
+#puzzle-container {
+  width: 400px;
+  height: 400px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 2px;
+}
+
+/* Puzzle parçaları */
+.piece {
+  background-image: url("image.jpg");
+  background-size: 400px 400px;
+  cursor: grab;
+}
+
+/* ====== MESAJ EKRANI ====== */
+#message {
+  position: fixed;
+  inset: 0;
+
+  /* ŞEFFAF MAVİ EKRAN */
+  background: rgba(80, 140, 255, 0.35);
+  backdrop-filter: blur(12px);
+
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 2.5s ease;
+  text-align: center;
+}
+
+/* Gösterildiğinde */
+#message.show {
+  opacity: 1;
+}
+
+/* BAŞLIK */
+#message h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  font-weight: 600;
+
+  /* Mavi-beyaz uyumlu */
+  background: linear-gradient(
+    90deg,
+    #eaf3ff,
+    #b8d7ff,
+    #7fb3ff
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* METİN */
+#message p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.95);
+}
