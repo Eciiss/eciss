@@ -1,4 +1,4 @@
-bbody {
+body {
   margin: 0;
   height: 100vh;
   display: flex;
@@ -16,6 +16,7 @@ bbody {
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(4, 1fr);
   gap: 2px;
+  z-index: 1;
 }
 
 /* Puzzle parçaları */
@@ -25,52 +26,39 @@ bbody {
   cursor: grab;
 }
 
-/* ====== MESAJ EKRANI ====== */
+/* Mesaj ekranı */
 #message {
   position: fixed;
   inset: 0;
-
-  /* ŞEFFAF MAVİ EKRAN */
-  background: rgba(80, 140, 255, 0.35);
-  backdrop-filter: blur(12px);
-
-  color: white;
+  background: rgba(180, 205, 255, 0.95); /* açık mavi, okunur */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   opacity: 0;
   pointer-events: none;
   transition: opacity 2.5s ease;
   text-align: center;
+  z-index: 10;
+  padding: 20px;
 }
 
-/* Gösterildiğinde */
+/* Mesaj görünür olduğunda */
 #message.show {
   opacity: 1;
 }
 
-/* BAŞLIK */
+/* Başlık */
 #message h1 {
-  font-size: 36px;
-  margin-bottom: 20px;
-  font-weight: 600;
-
-  /* Mavi-beyaz uyumlu */
-  background: linear-gradient(
-    90deg,
-    #eaf3ff,
-    #b8d7ff,
-    #7fb3ff
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  font-size: 38px;
+  font-weight: bold;
+  color: #1f3c88; /* koyu mavi */
+  margin-bottom: 24px;
 }
 
-/* METİN */
+/* Metin */
 #message p {
   font-size: 18px;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.7;
+  color: #1f2a44; /* koyu lacivert */
 }
